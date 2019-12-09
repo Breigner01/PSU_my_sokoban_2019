@@ -59,6 +59,7 @@ void holes_check(game_t *game)
 void game_fun(game_t *game)
 {
     initscr();
+    curs_set(FALSE);
     display_map(game);
     keypad(stdscr, TRUE);
     while (1) {

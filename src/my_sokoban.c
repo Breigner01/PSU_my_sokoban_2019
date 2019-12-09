@@ -19,6 +19,7 @@ void free_all(game_t *game, int end)
     for (int i = 0; i < game->nb_o; ++i)
         free(game->o_coords[i]);
     free(game->o_coords);
+    curs_set(TRUE);
     exit(end);
 }
 
