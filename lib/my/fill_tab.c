@@ -15,14 +15,13 @@ char **fill_tab(const char *str)
     int x = count_line_len(str);
     int y = count_line_nb(str);
     char **tab;
-    int i = 0;
     int j = 0;
     int k = 0;
 
     tab = malloc(sizeof(char *) * (y + 1));
-    for (; str[i] != '\0'; ++j) {
+    for (int i = 0; str[i] != '\0'; ++j) {
         tab[j] = malloc(x + 2);
-        for (k = 0; str[i] != '\n'; ++k) {
+        for (k = 0; str[i] != '\n' && str[i] != '\0'; ++k) {
             tab[j][k] = str[i];
             i += 1;
         }

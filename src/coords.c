@@ -21,7 +21,6 @@ int store_holes_coords(struct game_struct *game, int count, int *i)
 
 void find_holes(game_t *game, int i[2])
 {
-    game->nb_o = 0;
     if (game->map[i[0]][i[1]] == 'O')
         game->nb_o += 1;
 }
@@ -31,10 +30,13 @@ void find_holes_coords(struct game_struct *game)
     int count = 0;
     int i[2] = {0, 0};
 
+    game->nb_o = 0;
     for (; game->map[i[0]] != NULL; ++i[0])
         for (i[1] = 0; game->map[i[0]][i[1]] != '\0'; ++i[1])
             find_holes(game, i);
     game->o_coords = malloc(sizeof(int *) * game->nb_o);
+    if (game->o_coords == NULL)
+        exit(84);
     for (i[0] = 0; game->map[i[0]] != NULL; ++i[0])
         for (i[1] = 0; game->map[i[0]][i[1]] != '\0'; ++i[1])
             count = store_holes_coords(game, count, i);

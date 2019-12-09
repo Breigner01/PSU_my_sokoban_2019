@@ -8,6 +8,20 @@
 #include "my.h"
 #include "sokoban.h"
 
+void free_all(game_t *game, int end)
+{
+    erase();
+    endwin();
+    for (int i = 0; i < game->y; ++i)
+        free(game->map[i]);
+    free(game->map);
+    free(game->buffer);
+    for (int i = 0; i < game->nb_o; ++i)
+        free(game->o_coords[i]);
+    free(game->o_coords);
+    exit(end);
+}
+
 void display_map(game_t *game)
 {
     if (LINES < game->y || COLS < game->x)
@@ -27,10 +41,13 @@ void sokoban(char *filepath)
 
     stat(filepath, &stat_info);
     game.buffer = malloc(stat_info.st_size + 1);
+    if (game.buffer == NULL)
+        exit(84);
     if (fd == -1 || stat_info.st_size == 0 ||
         read(fd, game.buffer, stat_info.st_size) == -1)
         exit(84);
     game.buffer[stat_info.st_size] = '\0';
+    close(fd);
     map_integrity(game.buffer);
     game.map = fill_tab(game.buffer);
     game.x = count_line_len(game.buffer);

@@ -30,5 +30,6 @@ void game_fun(game_t *);
 void display_map(game_t *);
 void map_integrity(char *);
 void reset_map(game_t *);
+void free_all(game_t *, int);
 
 #endif
