@@ -7,10 +7,10 @@
 
 #include <stdlib.h>
 
-void my_putstr(char *);
+void my_putstr(const char *);
 char *my_revstr(char *);
 
-void my_put_unsigned_short(unsigned short nb)
+void my_put_unsigned_short(short unsigned int nb)
 {
     char *nb_str = malloc(sizeof(char) * 6);
     int i = 0;

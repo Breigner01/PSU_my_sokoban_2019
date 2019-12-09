@@ -42,7 +42,10 @@ SRC	=	my_compute_power_rec.c   	\
 		my_put_unsigned_long.c		\
 		my_put_unprintable.c		\
 		my_put_short.c				\
-		my_put_unsigned_short.c
+		my_put_unsigned_short.c		\
+		count_line_len.c			\
+		count_line_nb.c				\
+		fill_tab.c
 
 OBJ	=	$(SRC:.c=.o)
 

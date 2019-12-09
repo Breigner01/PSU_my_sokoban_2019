@@ -7,10 +7,10 @@
 
 #include <unistd.h>
 
-void my_putchar(char c);
-int my_strlen(char const *);
+void my_putchar(const char c);
+int my_strlen(const char *);
 
-void my_putstr(char const *str)
+void my_putstr(const char *str)
 {
     write(1, str, my_strlen(str));
 }

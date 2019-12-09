@@ -10,9 +10,11 @@ CFLAGS	=	-Wall -Wextra
 LDFLAGS =	-L lib/my/ -lmy -lncurses
 UTFLAGS =	-lcriterion --coverage
 
-SRC		=	main.c			\
-			my_sokoban.c	\
-			holes.c			\
+SRC		=	src/main.c			\
+			src/my_sokoban.c	\
+			src/coords.c		\
+			src/movement.c		\
+			src/game.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -54,7 +56,14 @@ SRCUT	=	lib/my/my_compute_power_rec.c		\
 			lib/my/my_put_unprintable.c			\
 			lib/my/my_put_short.c				\
 			lib/my/my_put_unsigned_short.c		\
-			main.c								\
+			lib/my/count_line_len.c				\
+			lib/my/count_line_nb.c				\
+			lib/my/fill_tab.c					\
+			src/main.c							\
+			src/my_sokoban.c					\
+			src/coords.c						\
+			src/movement.c						\
+			src/game.c
 
 OBJUT	=	$(SRCUT:.c=.o)
 
@@ -76,7 +85,7 @@ tests_run: $(OBJUT)
 debug: CFLAGS += -g3
 debug: $(OBJ)
 	make -C lib/my/
-	gcc -o $(NAME) $(OBJ) $(LDFLAGS) $(UTFLAGS)
+	gcc -o $(NAME) $(OBJ) $(LDFLAGS)
 
 clean:
 	rm -f $(OBJ) $(OBJUT) vgcore.* *.gcda *.gcno

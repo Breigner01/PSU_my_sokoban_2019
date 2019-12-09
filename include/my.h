@@ -10,14 +10,19 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <inttypes.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 #define ATN(c) (c - '0')
 #define NTA(n) (n + '0')
 
 int my_isneg(int);
 void my_swap(int *, int *);
-int my_strlen(char const *);
-int my_getnbr(char const *);
+int my_strlen(const char *);
+int my_getnbr(const char *);
 void my_sort_int_array(int *, int);
 int my_compute_power_rec(int, int);
 int my_compute_square_root(int);
@@ -45,20 +50,25 @@ char *my_strdup(char const *);
 void *my_memset(void *, int, size_t);
 
 // my_printf
-void my_putchar(char);
-int my_putstr(char const *);
-int my_put_nbr(int);
+void my_putchar(const char);
+void my_putstr(const char *);
+void my_put_nbr(int);
 void my_put_binary(uint64_t);
 void my_put_hexa_maj(uint64_t);
 void my_put_hexa_min(uint64_t);
 void my_put_address(uint64_t);
-void my_put_long(long);
-void my_put_long_long(long long);
+void my_put_long(long int);
+void my_put_long_long(long long int);
 void my_put_unsigned_int(unsigned int);
-void my_put_unsigned_long(unsigned long);
+void my_put_unsigned_long(unsigned long int);
 void my_put_octal(uint64_t);
 void my_put_unprintable(char *);
-void my_put_short(short);
-void my_put_unsigned_short(short);
+void my_put_short(short int);
+void my_put_unsigned_short(short unsigned int);
+
+// fill tab
+int count_line_len(const char *);
+int count_line_nb(const char *);
+char **fill_tab(const char *);
 
 #endif

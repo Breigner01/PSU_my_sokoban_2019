@@ -12,7 +12,7 @@ void my_putchar(char);
 void my_putstr(char *);
 char *my_revstr(char *);
 
-void disp_short(short nb, int sign)
+void disp_short(short int nb, int sign)
 {
     char *nb_str = malloc(sizeof(char) * 6);
     int i = 0;
@@ -28,7 +28,7 @@ void disp_short(short nb, int sign)
     free(nb_str);
 }
 
-void my_put_short(short nb)
+void my_put_short(short int nb)
 {
     if (nb < 0) {
         my_putchar('-');
