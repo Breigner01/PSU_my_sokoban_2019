@@ -94,5 +94,8 @@ void key_detection(game_t *game)
     case 32:
         reset_map(game);
         break;
+    case 27:
+        free_all(game, 0);
+        break;
     }
 }
