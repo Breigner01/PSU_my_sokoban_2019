@@ -10,7 +10,7 @@
 
 void reset_map(game_t *game)
 {
-    erase();
+    clear();
     for (int i = 0; i < game->y; ++i)
         free(game->map[i]);
     free(game->map);
@@ -69,7 +69,7 @@ void game_fun(game_t *game)
         game->key = getch();
         key_detection(game);
         holes_check(game);
-        erase();
+        clear();
         display_map(game);
         win_check(game);
         loss_check(game);

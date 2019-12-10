@@ -10,7 +10,7 @@
 
 void free_all(game_t *game, int end)
 {
-    erase();
+    clear();
     endwin();
     for (int i = 0; i < game->y; ++i)
         free(game->map[i]);
