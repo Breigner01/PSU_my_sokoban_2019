@@ -11,6 +11,9 @@
 void reset_map(game_t *game)
 {
     erase();
+    for (int i = 0; i < game->y; ++i)
+        free(game->map[i]);
+    free(game->map);
     game->map = fill_tab(game->buffer);
     player_coords(game);
     display_map(game);
