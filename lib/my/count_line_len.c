@@ -12,7 +12,7 @@ int count_line_len(const char *str)
     int tmp = 0;
 
     while (str[i] != '\0') {
-        while (str[i] != '\n') {
+        while (str[i] != '\n' && str[i] != '\0') {
             tmp += 1;
             i += 1;
         }

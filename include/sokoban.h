@@ -20,6 +20,7 @@ typedef struct game_struct {
     int key;
     int x;
     int y;
+    int score;
 } game_t;
 
 void sokoban(char *);
@@ -28,7 +29,7 @@ void key_detection(game_t *);
 void player_coords(game_t *);
 void game_fun(game_t *);
 void display_map(game_t *);
-void map_integrity(char *);
+void map_integrity(char *, int);
 void reset_map(game_t *);
 void free_all(game_t *, int);
 

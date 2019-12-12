@@ -49,7 +49,7 @@ void sokoban(char *filepath)
         exit(84);
     game.buffer[stat_info.st_size] = '\0';
     close(fd);
-    map_integrity(game.buffer);
+    map_integrity(game.buffer, fd);
     game.map = fill_tab(game.buffer);
     game.x = count_line_len(game.buffer);
     game.y = count_line_nb(game.buffer);

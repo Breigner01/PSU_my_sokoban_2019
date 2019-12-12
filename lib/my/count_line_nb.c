@@ -10,7 +10,7 @@ int count_line_nb(const char *str)
     int j = 0;
 
     for (int i = 0; str[i] != '\0'; ++i)
-        if (str[i] == '\n')
+        if (str[i] == '\n' || (str[i] == '\0' && str[i - 1] != '\n'))
             j += 1;
     return (j);
 }
