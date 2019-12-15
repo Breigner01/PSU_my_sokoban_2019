@@ -14,7 +14,8 @@ SRC		=	src/main.c			\
 			src/my_sokoban.c	\
 			src/coords.c		\
 			src/movement.c		\
-			src/game.c
+			src/game.c			\
+			src/reset_map.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -63,7 +64,8 @@ SRCUT	=	lib/my/my_compute_power_rec.c		\
 			src/my_sokoban.c					\
 			src/coords.c						\
 			src/movement.c						\
-			src/game.c
+			src/game.c							\
+			src/reset_map.c
 
 OBJUT	=	$(SRCUT:.c=.o)
 

@@ -8,17 +8,6 @@
 #include "my.h"
 #include "sokoban.h"
 
-void reset_map(game_t *game)
-{
-    clear();
-    for (int i = 0; i < game->y; ++i)
-        free(game->map[i]);
-    free(game->map);
-    game->map = fill_tab(game->buffer);
-    player_coords(game);
-    display_map(game);
-}
-
 int count_blocked_boxes(game_t *game, int i, int j, int count)
 {
     char c_1 = game->map[i - 1][j];
